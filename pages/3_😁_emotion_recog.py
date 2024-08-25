@@ -181,7 +181,7 @@ def main():
     names_dict = model_class_names
 
     img_file_buffer = st.camera_input("Take a picture")
-    st.markdown('Processed image')
+
     frame_placeholder = st.empty()
     
     if img_file_buffer is not None:
@@ -203,6 +203,8 @@ def main():
         annotated_frame = draw_boxes(frame, boxes, names, color)
 
         annotated_frame = cv2.cvtColor(annotated_frame, cv2.COLOR_BGR2RGB)
+        
+        frame_placeholder.markdown('Processed image')
         frame_placeholder.image(annotated_frame, channels="RGB")
 
 if __name__ == "__main__":
