@@ -62,8 +62,8 @@ def main():
     
     with st.sidebar:
         
-        left, center, right = st.columns(3)
-        with center:
+        a, b, c, d, e = st.columns(5)
+        with c:
             st.image('app_logo.png', width=150)
                 
         st.title("Config")
