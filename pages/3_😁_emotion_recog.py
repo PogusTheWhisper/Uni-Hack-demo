@@ -203,11 +203,8 @@ def main():
 
             annotated_frame = cv2.cvtColor(annotated_frame, cv2.COLOR_BGR2RGB)
             
-            a, b, c = st.columns(3)
-            with b:
-                st.markdown('Processed image')
-            with a:
-                st.image(annotated_frame, channels="RGB")
+            st.title('Processed image')
+            st.image(annotated_frame, channels="RGB")
 
 if __name__ == "__main__":
     main()
