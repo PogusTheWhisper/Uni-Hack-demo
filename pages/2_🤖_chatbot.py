@@ -68,6 +68,9 @@ def main():
                 
         st.title("Config")
         
+        if "typhoon_api_key" not in st.session_state:
+            st.session_state["typhoon_api_key"] = ""
+    
         # Input fields
         typhoon_api_key = st.text_input(
             label='TYPHOON API KEY', 
