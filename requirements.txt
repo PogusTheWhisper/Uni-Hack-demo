@@ -52,7 +52,6 @@ numpy==2.1.0
 onnx==1.16.2
 onnxruntime==1.19.0
 openai==1.42.0
-opencv-python==4.10.0.84
 opencv-python-headless==4.10.0.84
 packaging==24.1
 pandas==2.2.2
