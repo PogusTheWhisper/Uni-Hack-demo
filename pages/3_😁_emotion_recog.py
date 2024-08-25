@@ -182,30 +182,29 @@ def main():
 
     img_file_buffer = st.camera_input("Take a picture")
 
-    frame_placeholder = st.empty()
-    
-    if img_file_buffer is not None:
-        # To read image file buffer with OpenCV:
-        bytes_data = img_file_buffer.getvalue()
-        cv2_img = cv2.imdecode(np.frombuffer(bytes_data, np.uint8), cv2.IMREAD_COLOR)
-        
-        frame = crop_center_square(cv2_img)
+    with st.container() as frame_container:
+        if img_file_buffer is not None:
 
-        results = model(frame, imgsz=96, conf=0.50, iou=0.9)
-        
-        boxes = results[0].boxes.xyxy.cpu().numpy()
-        scores = results[0].boxes.conf.cpu().numpy()
-        classes = results[0].boxes.cls.cpu().numpy()
+            bytes_data = img_file_buffer.getvalue()
+            cv2_img = cv2.imdecode(np.frombuffer(bytes_data, np.uint8), cv2.IMREAD_COLOR)
+            
+            frame = crop_center_square(cv2_img)
 
-        names = [names_dict.get(int(cls), 'Unknown') for cls in classes]
+            results = model(frame, imgsz=96, conf=0.50, iou=0.9)
+            
+            boxes = results[0].boxes.xyxy.cpu().numpy()
+            scores = results[0].boxes.conf.cpu().numpy()
+            classes = results[0].boxes.cls.cpu().numpy()
 
-        color = (0, 0, 255)
-        annotated_frame = draw_boxes(frame, boxes, names, color)
+            names = [names_dict.get(int(cls), 'Unknown') for cls in classes]
 
-        annotated_frame = cv2.cvtColor(annotated_frame, cv2.COLOR_BGR2RGB)
-        
-        frame_placeholder.markdown('Processed image')
-        frame_placeholder.image(annotated_frame, channels="RGB", width=200)
+            color = (0, 0, 255)
+            annotated_frame = draw_boxes(frame, boxes, names, color)
+
+            annotated_frame = cv2.cvtColor(annotated_frame, cv2.COLOR_BGR2RGB)
+            
+            st.markdown('Processed image')
+            st.image(annotated_frame, channels="RGB", width=200)
 
 if __name__ == "__main__":
-    main()
+    main(
