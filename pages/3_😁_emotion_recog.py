@@ -205,7 +205,7 @@ def main():
         annotated_frame = cv2.cvtColor(annotated_frame, cv2.COLOR_BGR2RGB)
         
         frame_placeholder.markdown('Processed image')
-        frame_placeholder.image(annotated_frame, channels="RGB")
+        frame_placeholder.image(annotated_frame, channels="RGB", width=200)
 
 if __name__ == "__main__":
     main()
