@@ -202,6 +202,8 @@ def main():
         annotated_frame = draw_boxes(frame, boxes, names, color)
 
         annotated_frame = cv2.cvtColor(annotated_frame, cv2.COLOR_BGR2RGB)
+        
+        st.markdown('Processed image')
         frame_placeholder.image(annotated_frame, channels="RGB")
 
 if __name__ == "__main__":
