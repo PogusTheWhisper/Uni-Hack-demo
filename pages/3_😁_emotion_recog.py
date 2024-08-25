@@ -206,7 +206,7 @@ def main():
             a, b, c = st.columns(3)
             with b:
                 st.title('Processed image')
-                st.image(annotated_frame, channels="RGB")
+                st.image(annotated_frame, channels="RGB", width=500)
 
 if __name__ == "__main__":
     main()
