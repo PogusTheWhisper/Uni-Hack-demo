@@ -1,5 +1,6 @@
 import streamlit as st
 import cv2
+from webcam import webcam
 from ultralytics import YOLOv10
 
 model_class_names = {
@@ -72,7 +73,7 @@ def main():
     frame_placeholder = st.empty()
     
     if start_button:
-        cap = cv2.VideoCapture(0)
+        cap = webcam()
 
         if not cap.isOpened():
             st.error("Could not open video capture.")
