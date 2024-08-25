@@ -205,8 +205,9 @@ def main():
             
             a, b, c = st.columns(3)
             with b:
-                st.title('Processed image')
-            st.image(annotated_frame, channels="RGB")
+                st.markdown('Processed image')
+            with a:
+                st.image(annotated_frame, channels="RGB")
 
 if __name__ == "__main__":
     main()
