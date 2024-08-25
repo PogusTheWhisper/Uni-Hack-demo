@@ -64,12 +64,12 @@ def main():
         
         left, center, right = st.columns(3)
         with center:
-            st.image('uni_hack_logo.png', width=100)
+            st.image('app_logo.png', width=100)
                 
         st.title("Config")
         
         if "typhoon_api_key" not in st.session_state:
-            st.session_state["typhoon_api_key"] = "ca"
+            st.session_state["typhoon_api_key"] = "Generate key form https://opentyphoon.ai/"
     
         # Input fields
         typhoon_api_key = st.text_input(
