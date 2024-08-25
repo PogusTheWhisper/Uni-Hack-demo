@@ -207,4 +207,4 @@ def main():
             st.image(annotated_frame, channels="RGB", width=200)
 
 if __name__ == "__main__":
-    main(
+    main()
