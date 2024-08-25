@@ -67,7 +67,7 @@ def main():
             st.image('app_logo.png', width=125)
                 
         st.title("Config")
-        st.markdown('Generate key form https://opentyphoon.ai/')
+        st.markdown('Generate key form here https://opentyphoon.ai/')
         
         if "typhoon_api_key" not in st.session_state:
             st.session_state["typhoon_api_key"] = ""
