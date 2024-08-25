@@ -67,6 +67,7 @@ def main():
             st.image('app_logo.png', width=125)
                 
         st.title("Config")
+        st.markdown('Generate key form https://opentyphoon.ai/')
         
         if "typhoon_api_key" not in st.session_state:
             st.session_state["typhoon_api_key"] = ""
@@ -74,7 +75,7 @@ def main():
         # Input fields
         typhoon_api_key = st.text_input(
             label='TYPHOON API KEY', 
-            placeholder='Generate key form https://opentyphoon.ai/', 
+            placeholder='Place key here', 
             value=st.session_state.get('typhoon_api_key', '')
         )
         
