@@ -64,7 +64,7 @@ def main():
         
         left, center, right = st.columns(3)
         with center:
-            st.image('app_logo.png', width=200)
+            st.image('app_logo.png', width=150)
                 
         st.title("Config")
         
